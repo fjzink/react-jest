@@ -3,22 +3,17 @@ import ReactDOM from 'react-dom';
 
 import './styles.scss';
 
-// const App = () => {
-//     return (
-//       <div className='app'>
-//         <p>Hello, World!</p>
-//         <img src='/dist/images/javascript.png' />
-//       <y/div>
-//     );
-// };
-
 class App extends React.Component {
     state = {
       CaptainKirkBio: {},
+      Foo: null,
     };
   
     componentDidMount() {
       this.onGetKirkBio();
+      import(/* webpackChunkName: 'Foo' */ './Foo').then(Foo => {
+        this.setState({ Foo: Foo.default });
+      });
     }
   
     onGetKirkBio = async () => {
@@ -42,7 +37,7 @@ class App extends React.Component {
     };
   
     render() {
-      const { CaptainKirkBio } = this.state;
+      const { CaptainKirkBio, Foo } = this.state;
       return (
         <div className="app">
           <img alt="header" src="/dist/images/javascript.png" className="app-header" />
@@ -59,6 +54,7 @@ class App extends React.Component {
               <p style={{ wordBreak: 'break-all' }}>{JSON.stringify(CaptainKirkBio)}</p>
             )}
           </section>
+          {Foo ? <Foo /> : <p>Foo is loading</p>}
         </div>
       );
     }
