@@ -1,0 +1,9 @@
+{
+  "name": "react-jest",
+  "version": "1.0.0",
+  "description": "React boilerplate with Jest",
+  "main": "src/index.js",
+  "repository": "https://github.com/fjzink/react-jest.git",
+  "author": "Joey Zink",
+  "license": "MIT"
+}
