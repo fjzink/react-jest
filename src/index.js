@@ -6,7 +6,8 @@ import './styles.scss';
 const App = () => {
     return (
       <div className='app'>
-        Hello, World!
+        <p>Hello, World!</p>
+        <img src='/dist/images/javascript.png' />
       </div>
     );
 };
